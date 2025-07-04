@@ -3,6 +3,7 @@ import pandas as pd
 import time
 from collections import defaultdict
 from datetime import datetime, timedelta
+from sqlalchemy import create_engine
 
 TEAM_ID = 135  # Padres
 SEASON = 2025
@@ -70,7 +71,7 @@ for player in roster:
     time.sleep(0.2)  # Be gentle on API
 
 # Step 3: Create DataFrame and sort
-df = pd.DataFrame(batters)
-df = df.sort_values(by='H+R+RBI', ascending=False).reset_index(drop=True)
+df_batters = pd.DataFrame(batters)
+df_batters = df_batters.sort_values(by='H+R+RBI', ascending=False).reset_index(drop=True)
 
-print(df)
+print(df_batters)
